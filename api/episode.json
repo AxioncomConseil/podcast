@@ -1,5 +1,16 @@
 [
 {
-"content": "[\n  {\n    \"title\": \"Episode 2025-11-10\",\n    \"description\": \"Veille hebdomadaire semaine 46\",\n    \"audioUrl\": \"https://podcast-seven-liart.vercel.app/audio/episode.mp3\",\n    \"audioLength\": 5194240,\n    \"guid\": \"episode-1762777492712\",\n    \"pubDate\": \"Mon, 10 Nov 2025 12:24:52 GMT\",\n    \"author\": \"Axioncom Conseil\",\n    \"explicit\": \"no\"\n  }\n]"
+"content": "[
+  {
+    "title": "Episode 2025-11-10",
+    "description": "Veille hebdomadaire semaine 46",
+    "audioUrl": "https://podcast-seven-liart.vercel.app/audio/episode.mp3",
+    "audioLength": 5194240,
+    "guid": "episode-1762777492712",
+    "pubDate": "Mon, 10 Nov 2025 12:24:52 GMT",
+    "author": "Axioncom Conseil",
+    "explicit": "no"
+  }
+]"
 }
 ]
