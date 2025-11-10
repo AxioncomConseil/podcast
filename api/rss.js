@@ -1,40 +1,39 @@
 export default function handler(req, res) {
-  // Exemple d’épisode statique
+  // Exemple d’épisode temporaire
   const episode = {
     title: "Épisode test",
     description: "Épisode généré automatiquement via ChatGPT",
-    audioUrl: "https://mon-fichier-audio.mp3", // Remplace par ton URL réelle
-    audioLength: 123456, // Taille en octets
+    audioUrl: "https://podcast-seven-liart.vercel.app/api/audio/test.mp3", // à remplacer plus tard
+    audioLength: 123456, // taille fictive, à mettre à jour automatiquement depuis n8n
     guid: "episode-1",
     pubDate: new Date().toUTCString(),
-    author: "Alex Codaura",
+    author: "Axioncom Conseil",
     explicit: "no"
   };
 
-  // Flux RSS complet avec les balises obligatoires pour Anchor
   const rss = `
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>Mon Podcast</title>
     <link>https://podcast-seven-liart.vercel.app</link>
     <description>Flux de mon podcast généré automatiquement</description>
-    
-    <!-- Illustration du podcast -->
+
+    <!-- Illustration -->
     <image>
-      <url>https://podcast-seven-liart.vercel.app/logoPodcast.png</url> <!-- Remplace par ton image de couverture -->
-      <title>Hôtel Hebdo Insight</title>
+      <url>https://podcast-seven-liart.vercel.app/logoPodcast.png</url>
+      <title>Mon Podcast</title>
       <link>https://podcast-seven-liart.vercel.app</link>
     </image>
 
     <!-- Infos iTunes obligatoires -->
-    <itunes:author>${episode.author}</itunes:author>
+    <itunes:author>Axioncom Conseil</itunes:author>
     <itunes:owner>
-      <itunes:name>${episode.author}</itunes:name>
+      <itunes:name>Axioncom Conseil</itunes:name>
       <itunes:email>automatisationaxc@gmail.com</itunes:email>
     </itunes:owner>
-    <itunes:explicit>${episode.explicit}</itunes:explicit>
+    <itunes:explicit>no</itunes:explicit>
 
-    <!-- Épisode -->
+    <!-- Épisode test -->
     <item>
       <title>${episode.title}</title>
       <description>${episode.description}</description>
