@@ -6,7 +6,7 @@ export default function handler(req, res) {
 
   // Lire le fichier JSON des épisodes
   try {
-    const filePath = path.join(process.cwd(), "api/episodes.json");
+    const filePath = path.join(process.cwd(), "api/episode.json");
     const data = fs.readFileSync(filePath, "utf-8");
     episodes = JSON.parse(data);
   } catch (e) {
