@@ -57,6 +57,7 @@ ${rssItems}
   </channel>
 </rss>`;
 
-  res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+  // ✅ LE FIX EST ICI
+  res.setHeader("Content-Type", "text/xml; charset=utf-8");
   res.status(200).send(rss);
 }
