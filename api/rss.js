@@ -34,29 +34,32 @@ export default function handler(req, res) {
   }).join("\n");
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0"
+     xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hôtel Hebdo Insight</title>
     <link>https://podcast-seven-liart.vercel.app</link>
     <description>Veille stratégique hebdomadaire pour l'industrie hôtelière française. Chaque vendredi, découvrez l'essentiel des actualités, tendances et innovations du secteur.</description>
     <language>fr-FR</language>
     <copyright>© ${new Date().getFullYear()} Axioncom Conseil</copyright>
-    
+    <itunes:explicit>no</itunes:explicit>
+
     <atom:link href="https://podcast-seven-liart.vercel.app/api/rss" rel="self" type="application/rss+xml"/>
-    
+
     <image>
       <url>https://podcast-seven-liart.vercel.app/logoPodcast.png</url>
       <title>Hôtel Hebdo Insight</title>
       <link>https://podcast-seven-liart.vercel.app</link>
     </image>
-    
+
     <itunes:author>Axioncom Conseil</itunes:author>
     <itunes:summary>Veille stratégique hebdomadaire pour l'industrie hôtelière française. Chaque vendredi, découvrez l'essentiel des actualités, tendances et innovations du secteur.</itunes:summary>
     <itunes:owner>
       <itunes:name>Axioncom Conseil</itunes:name>
       <itunes:email>automatisationaxc@gmail.com</itunes:email>
     </itunes:owner>
-    <itunes:explicit>no</itunes:explicit>
     <itunes:image href="https://podcast-seven-liart.vercel.app/logoPodcast.png"/>
     <itunes:category text="Business">
       <itunes:category text="Management"/>
