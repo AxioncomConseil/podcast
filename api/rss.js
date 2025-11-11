@@ -12,18 +12,26 @@ export default function handler(req, res) {
     console.log("Aucun épisode trouvé ou erreur lors de la lecture du JSON.", e);
   }
 
-  const rssItems = episodes.map(ep => `
+  const rssItems = episodes.map(ep => {
+    // Calcul de la durée en secondes depuis audioLength (en octets)
+    // Estimation: 128 kbps MP3 ≈ 16000 octets/seconde
+    const durationSeconds = Math.round(ep.audioLength / 16000);
+
+    return `
     <item>
       <title>${ep.title}</title>
+      <link>https://podcast-seven-liart.vercel.app</link>
       <description>${ep.description}</description>
       <enclosure url="${ep.audioUrl}" length="${ep.audioLength}" type="audio/mpeg"/>
       <guid isPermaLink="false">${ep.guid}</guid>
       <pubDate>${ep.pubDate}</pubDate>
       <itunes:author>${ep.author}</itunes:author>
+      <itunes:summary>${ep.description}</itunes:summary>
       <itunes:explicit>${ep.explicit}</itunes:explicit>
-      <itunes:duration>600</itunes:duration>
+      <itunes:duration>${durationSeconds}</itunes:duration>
     </item>
-  `).join("\n");
+  `;
+  }).join("\n");
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -43,6 +51,7 @@ export default function handler(req, res) {
     </image>
     
     <itunes:author>Axioncom Conseil</itunes:author>
+    <itunes:summary>Veille stratégique hebdomadaire pour l'industrie hôtelière française. Chaque vendredi, découvrez l'essentiel des actualités, tendances et innovations du secteur.</itunes:summary>
     <itunes:owner>
       <itunes:name>Axioncom Conseil</itunes:name>
       <itunes:email>automatisationaxc@gmail.com</itunes:email>
