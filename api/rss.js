@@ -44,7 +44,6 @@ export default function handler(req, res) {
     <description>Veille stratégique hebdomadaire pour l'industrie hôtelière française. Chaque vendredi, découvrez l'essentiel des actualités, tendances et innovations du secteur.</description>
     <language>fr-FR</language>
     <copyright>© ${new Date().getFullYear()} Axioncom Conseil</copyright>
-    <itunes:explicit>no</itunes:explicit>
 
     <atom:link href="https://podcast-seven-liart.vercel.app/api/rss" rel="self" type="application/rss+xml"/>
 
@@ -56,6 +55,7 @@ export default function handler(req, res) {
 
     <itunes:author>Axioncom Conseil</itunes:author>
     <itunes:summary>Veille stratégique hebdomadaire pour l'industrie hôtelière française. Chaque vendredi, découvrez l'essentiel des actualités, tendances et innovations du secteur.</itunes:summary>
+    <itunes:explicit>no</itunes:explicit>
     <itunes:owner>
       <itunes:name>Axioncom Conseil</itunes:name>
       <itunes:email>automatisationaxc@gmail.com</itunes:email>
@@ -64,6 +64,9 @@ export default function handler(req, res) {
     <itunes:category text="Business">
       <itunes:category text="Management"/>
     </itunes:category>
+
+    <podcast:guid>hotel-hebdo-insight-axioncom</podcast:guid>
+    <podcast:locked>yes</podcast:locked>
     
 ${rssItems}
   </channel>
